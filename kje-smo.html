@@ -1,0 +1,85 @@
+<?php   
+require 'functions.php';
+$content=GetContentPage(29);   
+$menu = menu($content,"kje-smo");
+echo $menu;	
+
+?>
+
+</script>
+        <div id="content">
+            <article>
+                <section class="section swatch-blue section-text-shadow section-inner-shadow">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <header class="text-left element-medium-top element-medium-bottom os-animation not-condensed" data-os-animation="none" data-os-animation-delay="1s">
+                                    <h1 class="bigger light nbordered-normal">
+                     <?php      
+												
+						echo $content['title'];	 
+					?>
+                </h1>
+                                </header>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+<?php
+
+if(strlen($content['naslov']) >=3){				
+         $vsebina .= "<section id=\"two\" class=\"section swatch-white\">
+                    <div class=\"container\">
+                        <div class=\"row element-normal-top\">
+                            <div class=\"col-md-9 col-md-push-3\">
+                                <section class=\"section-normal swatch-white\">
+                                    <div class=\"background-overlay grid-overlay-0 \" style=\"background-color: rgba(0,0,0,0);\"></div>
+                                    <div class=\"row\">
+                                        <div class=\"col-md-12\">";
+                                                  
+												
+										$vsebina .= $content['content'];
+											
+                                        $vsebina .= " </div>
+                                    </div>
+                                </section>
+                            </div>
+							
+		<div class=\"col-md-3 col-md-pull-9 sidebar\">
+						<div id=\"categories-3\" class=\"sidebar-widget  widget_categories\">
+							<h2 class=\"h2blue\"><font color=\"#82C9ED\">". $content['naslov']."</font></h2>
+								". $content['content1']."
+						</div>
+					</div>";
+}else{
+		$vsebina .= "<section class=\"section swatch-white\">
+                    <div class=\"container\">
+                        <div class=\"row\">
+                            <div class=\"col-md-12\">
+                             <br/><br/><br/><br/>
+                                   
+                           
+												
+						". $content['content']."
+					
+                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>";
+}
+echo $vsebina ;					
+?>							
+                        </div>
+                    </div>
+                </section>
+            </article>
+<?php
+	include 'footer.php';
+?>
+        </div>
+        <script src="assets/js/packages.min.js"></script>
+        <script src="assets/js/theme.min.js"></script>
+    </body>
+</html>
